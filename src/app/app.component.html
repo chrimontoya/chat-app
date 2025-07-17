@@ -1,7 +1,15 @@
-<h1>Chat</h1>
-<input [(ngModel)]="mensaje" placeholder="Escribe un mensaje" />
-<button (click)="enviar()">Enviar</button>
-<ul>
-  <li *ngFor="let msg of mensajes">{{ msg }}</li>
-</ul>
+<div class="container-fluid bg-dark h-100">
+  <h1 class="text-white-50">Chat</h1>
+
+  <ul class="w-75 m-auto list-unstyled">
+    <li class="text-white-50" *ngFor="let msg of mensajes">{{ msg }}</li>
+  </ul>
+  <div class="d-flex flex-row fixed-bottom w-75 m-auto">
+
+    <button mat-flat-button (click)="enviar()" color="red">Enviar</button>
+    <mat-form-field class="w-100">
+      <input matInput [formControl]="messageInput" placeholder="Escribe un mensaje" (keyup.enter)="enviar()">
+    </mat-form-field>
+  </div>
+</div>
 <router-outlet/>
